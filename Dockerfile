@@ -1,4 +1,4 @@
-# Use an official PHP runtime with Apache
+# Use an official PHP runtime with Apache 
 FROM php:7.4-apache
 
 # Install necessary packages and the PostgreSQL PDO extension
@@ -13,6 +13,9 @@ COPY . /var/www/html
 
 # Set permissions for all image folders to be writable
 RUN chmod -R 777 /var/www/html/donation_img /var/www/html/profile_img /var/www/html/blog_img
+
+# Declare volumes to persist images
+VOLUME ["/var/www/html/profile_img", "/var/www/html/donation_img", "/var/www/html/blog_img"]
 
 # Expose ports for the WebSocket servers
 EXPOSE 8081 8082 8083

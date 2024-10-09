@@ -12,18 +12,19 @@ include "dbconnection.php";
    $dateOfBirth = $_POST['dateOfBirth'];
    $disability = $_POST['disability'];   
    $smoker = $_POST['smoker'];
+   $drinker = $_POST['drinker'];
 
    $response = [];
 
-   $select_user = $conn->prepare("SELECT * FROM MedicalDetails WHERE allegies = ? AND surgical_history = ? AND bloodGroup = ? AND Fmedical_history = ? AND gender = ? AND email = ? AND genotype = ? AND dateOfBirth = ? AND disability = ? AND smoker = ?");
-   $select_user->execute([$allegies, $surgical_history, $bloodGroup, $Fmedical_history, $gender, $email, $genotype, $dateOfBirth, $disability, $smoker]);
+   $select_user = $conn->prepare("SELECT * FROM MedicalDetails WHERE allegies = ? AND surgical_history = ? AND bloodGroup = ? AND Fmedical_history = ? AND gender = ? AND email = ? AND genotype = ? AND dateOfBirth = ? AND disability = ? AND smoker = ? AND drinker = ?");
+   $select_user->execute([$allegies, $surgical_history, $bloodGroup, $Fmedical_history, $gender, $email, $genotype, $dateOfBirth, $disability, $smoker, $drinker]);
 
    if($select_user->rowCount() > 0){
        $response["message"] = "already registered";
        
     }else{
-   $insert_user = $conn->prepare("INSERT INTO MedicalDetails(allegies, surgical_history, bloodGroup, Fmedical_history, gender, email, genotype, dateOfBirth, disability, smoker, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,CURRENT_DATE)");
-   $insert_user->execute([$allegies, $surgical_history, $bloodGroup, $Fmedical_history, $gender, $email, $genotype, $dateOfBirth, $disability, $smoker]);
+   $insert_user = $conn->prepare("INSERT INTO MedicalDetails(allegies, surgical_history, bloodGroup, Fmedical_history, gender, email, genotype, dateOfBirth, disability, smoker, drinker, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,CURRENT_DATE)");
+   $insert_user->execute([$allegies, $surgical_history, $bloodGroup, $Fmedical_history, $gender, $email, $genotype, $dateOfBirth, $disability, $smoker, $drinker]);
    
           $response["message"] = "submitted";
    }

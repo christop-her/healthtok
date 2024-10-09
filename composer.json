@@ -1,0 +1,21 @@
+{
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src"
+        }
+    },
+    
+    "require": {
+        "cboden/ratchet": "^0.4.4",
+        "hybridauth/hybridauth": "^3.11",
+
+        "gemini-api-php/client": "^1.4",
+        "symfony/http-client": "^7.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        },
+        "firebase/php-jwt": "^6.10"
+    }
+}

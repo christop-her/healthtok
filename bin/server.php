@@ -3,8 +3,8 @@
 use Ratchet\Server\IoServer;
 use Ratchet\Http\HttpServer;
 use Ratchet\WebSocket\WsServer;
-use MyApp\Chat;
-use MyApp\Message;
+// use MyApp\Chat;
+// use MyApp\Message;
 use MyApp\Appointdelete;
 use React\EventLoop\Factory;
 use React\Socket\Server as ReactServer;
@@ -15,20 +15,20 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 $loop = Factory::create();
 
 // Setup the Chat server
-$chatWebSocket = new WsServer(new Chat());
-$chatServer = new IoServer(
-    new HttpServer($chatWebSocket),
-    new ReactServer('0.0.0.0:8082', $loop),
-    $loop
-);
+// $chatWebSocket = new WsServer(new Chat());
+// $chatServer = new IoServer(
+//     new HttpServer($chatWebSocket),
+//     new ReactServer('0.0.0.0:8082', $loop),
+//     $loop
+// );
 
 // Setup the Follow server
-$messageWebSocket = new WsServer(new Message());
-$messageServer = new IoServer(
-    new HttpServer($messageWebSocket),
-    new ReactServer('0.0.0.0:8081', $loop),
-    $loop
-);
+// $messageWebSocket = new WsServer(new Message());
+// $messageServer = new IoServer(
+//     new HttpServer($messageWebSocket),
+//     new ReactServer('0.0.0.0:8081', $loop),
+//     $loop
+// );
 
 $AppointdeleteWebSocket = new WsServer(new Appointdelete());
 $AppointdeleteServer = new IoServer(
@@ -38,4 +38,9 @@ $AppointdeleteServer = new IoServer(
 );
 
 echo "WebSocket servers are running\n";
-$loop->run();
+try {
+    $loop->run();
+} catch (\Exception $e) {
+    error_log("WebSocket Error: " . $e->getMessage());
+}
+

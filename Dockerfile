@@ -1,5 +1,5 @@
 # Use an official PHP runtime with Apache 
-FROM php:7.4-cli
+FROM php:7.4-apache
 
 # Install necessary packages and the PostgreSQL PDO extension
 RUN apt-get update && apt-get install -y libpq-dev \

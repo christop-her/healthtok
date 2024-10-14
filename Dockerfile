@@ -18,4 +18,4 @@ RUN chmod -R 777 /var/www/html/donation_img /var/www/html/profile_img /var/www/h
 EXPOSE 8081
 
 # Start the WebSocket server directly
-CMD ["php", "/var/www/html/path/to/server.php"]
+CMD ["php", "/var/www/html/bin/server.php"]

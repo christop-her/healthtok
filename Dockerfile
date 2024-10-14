@@ -27,7 +27,7 @@ RUN chmod -R 777 /var/www/html/donation_img /var/www/html/profile_img /var/www/h
 VOLUME ["/var/www/html/profile_img", "/var/www/html/donation_img", "/var/www/html/blog_img"]
 
 # Expose ports for the WebSocket servers
-EXPOSE 8083
+EXPOSE 8081 8082 8083
 
 # Copy the Supervisor configuration file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

@@ -18,7 +18,7 @@ RUN chmod -R 777 /var/www/html/donation_img /var/www/html/profile_img /var/www/h
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose the WebSocket port and Apache port
-EXPOSE 8081 80
+EXPOSE 8081
 
 # Start Supervisor
 CMD ["supervisord", "-n"]

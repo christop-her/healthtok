@@ -1,24 +1,28 @@
-# Use a lightweight PHP runtime
+# Use an official PHP runtime with Apache 
 FROM php:7.4-cli
 
-# Install necessary packages
-RUN apt-get update && apt-get install -y libpq-dev supervisor \
+# Install necessary packages and the PostgreSQL PDO extension
+RUN apt-get update && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql
 
 # Set the working directory
 WORKDIR /var/www/html
 
-# Install PHP dependencies (assuming composer.json is present)
-RUN composer install --no-dev
-
 # Copy the project files into the container
 COPY . /var/www/html
 
-# Expose port for WebSocket server
-EXPOSE 8081
+# Set permissions for all image folders to be writable
+RUN chmod -R 777 /var/www/html/donation_img /var/www/html/profile_img /var/www/html/blog_img
 
-# Copy Supervisor configuration
+# Declare volumes to persist images
+VOLUME ["/var/www/html/profile_img", "/var/www/html/donation_img", "/var/www/html/blog_img"]
+
+# Expose ports for the WebSocket servers
+EXPOSE 8081 8082 8083
+
+# Use Supervisor to manage both Apache and the WebSocket servers
+RUN apt-get update && apt-get install -y supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Start Supervisor to manage WebSocket server
+# Start Supervisor
 CMD ["supervisord"]

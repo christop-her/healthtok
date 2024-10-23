@@ -29,10 +29,7 @@ return array(
     'Hybridauth\\' => array($vendorDir . '/hybridauth/hybridauth/src'),
     'Http\\Discovery\\' => array($vendorDir . '/php-http/discovery/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
-<<<<<<< HEAD
     'GeminiAPI\\' => array($vendorDir . '/gemini-api-php/client/src'),
-=======
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
->>>>>>> eb9ab46 (new)
     'Evenement\\' => array($vendorDir . '/evenement/evenement/src'),
 );

@@ -3,11 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< HEAD
-        'reference' => 'b4448716a32fa6c121b240e726e7005f263ef5ba',
-=======
-        'reference' => '159326dd212fe774085b546743059056625a26df',
->>>>>>> eb9ab46 (new)
+        'reference' => 'b86ffc891956f2ea20a7eb66049c839c0680d98a',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -17,11 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< HEAD
-            'reference' => 'b4448716a32fa6c121b240e726e7005f263ef5ba',
-=======
-            'reference' => '159326dd212fe774085b546743059056625a26df',
->>>>>>> eb9ab46 (new)
+            'reference' => 'b86ffc891956f2ea20a7eb66049c839c0680d98a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -45,21 +37,21 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-<<<<<<< HEAD
-        'gemini-api-php/client' => array(
-            'pretty_version' => 'v1.4.4',
-            'version' => '1.4.4.0',
-            'reference' => '84741c6e01c76d17e2786bd454e9f8bdf32e250f',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../gemini-api-php/client',
-=======
         'firebase/php-jwt' => array(
             'pretty_version' => 'v6.10.1',
             'version' => '6.10.1.0',
             'reference' => '500501c2ce893c824c801da135d02661199f60c5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../firebase/php-jwt',
->>>>>>> eb9ab46 (new)
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'gemini-api-php/client' => array(
+            'pretty_version' => 'v1.4.4',
+            'version' => '1.4.4.0',
+            'reference' => '84741c6e01c76d17e2786bd454e9f8bdf32e250f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../gemini-api-php/client',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

@@ -62,7 +62,15 @@ if (!empty($email) && !empty($userpassword)) {
             )
         );
 
-        $jwt = JWT::encode($token_payload, $secret_key, 'HS256');
+        try {
+            $jwt = JWT::encode($token_payload, $secret_key, 'HS256');
+        } catch (Exception $e) {
+            echo "Error generating token: " . $e->getMessage();
+            exit;
+        }
+        
+
+        // $jwt = JWT::encode($token_payload, $secret_key, 'HS256');
 
         $response["success"] = true;
         $response["message"] = "Login successful";

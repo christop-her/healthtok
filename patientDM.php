@@ -8,7 +8,7 @@ include "dbconnection.php";
 
    $response = [];
     
-   $select_data = $conn->prepare("SELECT * FROM directmessage WHERE email = ? AND mymessage");
+   $select_data = $conn->prepare("SELECT * FROM directmessage WHERE email = ? AND mymessage = ?");
    $select_data->execute([$email, $myMessage]);
    $row = $select_data->fetch(PDO::FETCH_ASSOC);
 

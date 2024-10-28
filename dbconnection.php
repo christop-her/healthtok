@@ -1,9 +1,9 @@
 <?php
 $db_host = 'oregon-postgres.render.com';  // e.g., 'db.example.com' or 'localhost'
 $db_port = '5432';  // Default PostgreSQL port
-$db_name = 'test_yvhj';  // Your database name
+$db_name = 'test_db_fiee';  // Your database name
 $user_name = 'root';  // Your PostgreSQL username
-$user_password = 'pB8U8bTRKMDUaBs600vj774gcSHvTFoE';  // Your PostgreSQL password
+$user_password = 'AnZuajfuL6ggESUYHAyJraPrO2TUuRsy';  // Your PostgreSQL password
 
 try {
     // Connection string for PostgreSQL

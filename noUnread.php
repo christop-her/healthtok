@@ -1,7 +1,7 @@
 <?php
 include "dbconnection.php";
 
-$email = $_POST['email'];
+$email = $_POST['doctoremail'];
 
 $response = [];
 $seenList = [];

@@ -1,13 +1,13 @@
 <?php
 include "dbconnection.php";
 
-$email = $_POST['doctoremail'];
+$email = $_POST['email'];
 
 $response = [];
 $seenList = [];
 
 // Fetch the list of seen messages
-$seen = $conn->prepare("SELECT * FROM messageseen WHERE doctoremail = ?");
+$seen = $conn->prepare("SELECT * FROM messageseen WHERE email = ?");
 $seen->execute([$email]);
 
 if($seen->rowCount() > 0){

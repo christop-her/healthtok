@@ -7,12 +7,12 @@ $response = [];
 $seenList = [];
 
 // Fetch the list of seen messages
-$seen = $conn->prepare("SELECT * FROM messageseen WHERE email = ?");
+$seen = $conn->prepare("SELECT * FROM messageseen WHERE doctoremail = ?");
 $seen->execute([$email]);
 
 if($seen->rowCount() > 0){
     while($fetch_list = $seen->fetch(PDO::FETCH_ASSOC)){
-        $seenList[] = $fetch_list["messageId"];
+        $seenList[] = $fetch_list["messageid"];
     }
 }
 
@@ -20,11 +20,11 @@ if($seen->rowCount() > 0){
 if (!empty($seenList)) {
     // If $seenList is not empty, add the NOT IN clause
     $seenListPlaceholder = implode(',', array_fill(0, count($seenList), '?'));
-    $select_data_query = "SELECT * FROM chats WHERE DoctorEmail = ? AND id NOT IN ($seenListPlaceholder)";
+    $select_data_query = "SELECT * FROM chats WHERE email = ? AND id NOT IN ($seenListPlaceholder)";
     $params = array_merge([$email], $seenList);
 } else {
     // If $seenList is empty, don't add the NOT IN clause
-    $select_data_query = "SELECT * FROM chats WHERE DoctorEmail = ?";
+    $select_data_query = "SELECT * FROM chats WHERE email = ?";
     $params = [$email];
 }
 

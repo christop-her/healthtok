@@ -20,11 +20,11 @@ if($seen->rowCount() > 0){
 if (!empty($seenList)) {
     // If $seenList is not empty, add the NOT IN clause
     $seenListPlaceholder = implode(',', array_fill(0, count($seenList), '?'));
-    $select_data_query = "SELECT * FROM chats WHERE email = ? AND id NOT IN ($seenListPlaceholder)";
+    $select_data_query = "SELECT * FROM chats WHERE doctoremail = ? AND id NOT IN ($seenListPlaceholder)";
     $params = array_merge([$email], $seenList);
 } else {
     // If $seenList is empty, don't add the NOT IN clause
-    $select_data_query = "SELECT * FROM chats WHERE email = ?";
+    $select_data_query = "SELECT * FROM chats WHERE doctoremail = ?";
     $params = [$email];
 }
 

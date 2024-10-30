@@ -22,9 +22,12 @@ include "dbconnection.php";
 //        $response["success"] = "email is  already registered";
        
 //     }else{
-   $insert_data = $conn->prepare("INSERT INTO chats(DoctorEmail, email, myMessage) VALUES(?,?,?)");
-   $insert_data->execute([$DoctorEmail, $email, $myMessage]);
-   
+   // $insert_data = $conn->prepare("INSERT INTO chats(DoctorEmail, email, myMessage) VALUES(?,?,?)");
+   // $insert_data->execute([$DoctorEmail, $email, $myMessage]);
+   $insert_data = $conn->prepare("INSERT INTO chats (DoctorEmail, email, myMessage, timestamp) VALUES (?, ?, ?, ?)");
+   $timestamp = date("Y-m-d H:i:s");
+   $insert_data->execute([$DoctorEmail, $email, $myMessage, $timestamp]);
+
           
         //   move_uploaded_file($image_tmp_name_01, $image_folder_01);
    $response["success"] = "message sent";

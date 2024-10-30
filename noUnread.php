@@ -7,7 +7,7 @@ $response = [];
 $seenList = [];
 
 // Fetch the list of seen messages
-$seen = $conn->prepare("SELECT * FROM messageseen WHERE email = ?");
+$seen = $conn->prepare("SELECT * FROM messageseen WHERE doctoremail = ?");
 $seen->execute([$email]);
 
 if($seen->rowCount() > 0){

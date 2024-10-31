@@ -32,7 +32,7 @@ include "dbconnection.php";
        $response["success"] = "already registered";
        
     }else{
-   $insert_user = $conn->prepare("INSERT INTO BloodDonor(image_01, username, user_address, phone, gender, userrole, email) VALUES(?,?,?,?,?,?,?)");
+   $insert_user = $conn->prepare("INSERT INTO BloodDonor(image_01, username, user_address, phone, gender, userrole, email, created_at) VALUES(?,?,?,?,?,?,?,CURRENT_DATE)");
    $insert_user->execute([$image_01, $username, $user_address, $phone, $gender, $userrole, $email]);
    
           
@@ -54,7 +54,7 @@ include "dbconnection.php";
         $response["success"] = "already registered";
         
      }else{
-    $insert_user = $conn->prepare("INSERT INTO BloodRecipient(username, user_address, phone, gender, dateOfDelivery, rhesusfactor, userrole, email) VALUES(?,?,?,?,?,?,?,?)");
+    $insert_user = $conn->prepare("INSERT INTO BloodRecipient(username, user_address, phone, gender, dateOfDelivery, rhesusfactor, userrole, email, created_at) VALUES(?,?,?,?,?,?,?,?,CURRENT_DATE)");
     $insert_user->execute([$username, $user_address, $phone, $gender, $dateOfDelivery, $rhesusfactor, $userrole, $email]);
     
            

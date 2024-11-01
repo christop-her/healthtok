@@ -6,7 +6,7 @@ $newemail = $_POST['newemail'];
 $username = $_POST['username'];
 $gender = $_POST['gender'];
 $phone = $_POST['phone'];
-$dob = $_POST['dateofbirth'];
+$dateofbirth = $_POST['dateofbirth'];
 
 
 // Prepare the SQL statement

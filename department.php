@@ -2,15 +2,18 @@
 
 include "dbconnection.php";
 
-$response = [];
 $department = $_POST['department'];
-$select_user = $conn->prepare("SELECT * FROM practitioner WHERE department = ?");
-$select_user->execute([$department]);
+$response = [];
 
-if ($select_user->rowCount() > 0) {
-    $response["data"][] = $select_user->fetchAll(PDO::FETCH_ASSOC);
+$select_data = $conn->prepare("SELECT * FROM  practitioner WHERE department = ?");
+$select_data->execute([$department]);
+
+if($select_data->rowCount() > 0){
+    while($fetch_data = $select_data->fetch(PDO::FETCH_ASSOC)){ 
+    $response["data"][] = $fetch_data;
     $response["message"] = "login successful";
-} else {
+    }
+}else {
     $response["message"] = "No practitioners found";
 }
 

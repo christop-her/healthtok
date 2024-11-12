@@ -13,7 +13,7 @@ if(isset($_POST['email']) && isset($_POST['DoctorEmail'])){
     $select_seen->execute([$DoctorEmail, $email]);
     if($select_seen->rowCount() > 0){
         while($fetch_seen = $select_seen->fetch(PDO::FETCH_ASSOC)){
-            $seenId[] = $fetch_seen['messageId'];
+            $seenId[] = $fetch_seen['messageid'];
         }
     }
 

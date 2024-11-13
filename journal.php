@@ -1,4 +1,4 @@
-<?php
+<!-- 
 include "dbconnection.php";
 
     $entry = $_POST['entries'];
@@ -18,4 +18,4 @@ include "dbconnection.php";
         $response["message"] = "successful";
 }
 
-echo json_encode($response);
+echo json_encode($response); -->

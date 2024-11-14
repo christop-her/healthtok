@@ -15,7 +15,7 @@ try {
     // Check if rows were returned
     if ($select_data->rowCount() > 0) {
         while ($fetch_data = $select_data->fetch(PDO::FETCH_ASSOC)) {
-            $response[] = $fetch_data;
+            $response["data"][] = $fetch_data;
         }
         $response["message"] = "login successful";
     } else {

@@ -13,7 +13,7 @@ try {
     foreach ($DoctorEmails as $DoctorEmail) {
         // Prepare and execute the query for each DoctorEmail
         $select_data = $conn->prepare("SELECT * FROM chats WHERE email = ? AND DoctorEmail = ? AND read_status = ?");
-        $select_data->execute([$email, $DoctorEmail, $status]);
+        $select_data->execute([$DoctorEmail, $email, $status]);
 
         // Check if rows were returned
         if ($select_data->rowCount() > 0) {

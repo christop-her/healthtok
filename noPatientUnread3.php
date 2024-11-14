@@ -2,8 +2,8 @@
 include "dbconnection.php";
 
 try {
-    $DoctorEmails = json_decode($_POST['email'], true); // Decoding JSON array of emails
-    $email = $_POST['DoctorEmail'];
+    $DoctorEmails = json_decode($_POST['DoctorEmail'], true); // Decoding JSON array of emails
+    $email = $_POST['email'];
     // $email = 'wilfredc685@gmail.com';
     $status = 'false';
 

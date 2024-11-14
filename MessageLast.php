@@ -4,7 +4,7 @@ include "dbconnection.php";
 try {
     $DoctorEmail = $_POST['DoctorEmail'];
     $email = $_POST['email'];
-    $status = false;
+    $status = 'false';
 
     $response = [];
 

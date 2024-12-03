@@ -6,11 +6,13 @@ include "dbconnection.php";
 
     
 $email = $_POST['email'];
+$status = $_POST['status'];
+$false = 'false';
 
 $response = [];
 
-$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ?");
-$select_user->execute([$email]);
+$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND read_status = ?");
+$select_user->execute([$email, $status]);
 
 if($select_user->rowCount() > 0){
     while($fetch_user = $select_user->fetch(PDO::FETCH_ASSOC)){ 

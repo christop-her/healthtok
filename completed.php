@@ -10,7 +10,7 @@ try {
     $false = 'false';
 
     // Prepare and execute the update query
-    $update_status = $conn->prepare("UPDATE bookings SET read_status = ? WHERE email = ? AND DoctorEmail = ? AND Atime = ? AND Adate = ? AND read_status = ?");
+    $update_status = $conn->prepare("UPDATE bookings SET read_status = ? WHERE email = ? AND DoctorEmail = ? AND atime = ? AND adate = ? AND read_status = ?");
     $update_status->execute([$true, $email, $DoctorEmail, $time, $day, $false]);
 
     // Check if rows were affected

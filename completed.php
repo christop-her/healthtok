@@ -15,7 +15,7 @@ try {
 
     $query = "UPDATE bookings SET read_status = 'true' WHERE email = ? AND DoctorEmail = ? AND Atime = ? AND Adate = ? AND read_status = 'false'";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("ssss", $email, $doctorEmail, $time, $day);
+$stmt->bind_param("ssss", $email, $DoctorEmail, $time, $day);
 $stmt->execute();
 
     // Check if rows were affected

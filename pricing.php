@@ -6,7 +6,7 @@ $rate = $_POST['rate'];
 $email = $_POST['email'];
 
 
-$update_profile = $conn->prepare("UPDATE pricing SET rate = ? WHERE email = ?");
+$update_profile = $conn->prepare("UPDATE practitioner SET rate = ? WHERE email = ?");
 
 if ($update_profile->execute([$rate, $email])) {
     if ($update_profile->rowCount() > 0) {

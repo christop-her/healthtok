@@ -8,7 +8,7 @@ try {
     $false = 'false';
 
     // Prepare and execute the update query
-    $update_status = $conn->prepare("UPDATE bookings SET read_status = ? WHERE email = ? AND DoctorEmail = ? AND read_status = ?");
+    $update_status = $conn->prepare("UPDATE bookings SET cancel_status = ? WHERE email = ? AND DoctorEmail = ? AND cancel_status = ?");
     $update_status->execute([$true, $email, $DoctorEmail, $false]);
 
     // Check if rows were affected

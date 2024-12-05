@@ -13,7 +13,7 @@ include "dbconnection.php";
 
     if($select_data->rowCount() == 0){
 
-        $insert_data = $conn->prepare("INSERT INTO prescription(injectable, oral, email, created_at) VALUES(?,?,?,CURRENT_DATE)");
+        $insert_data = $conn->prepare("INSERT INTO prescription(injectable, oral, email) VALUES(?,?,?)");
         $insert_data->execute([$injectable, $oral, $email]);
     
         $response["message"] = "successful";

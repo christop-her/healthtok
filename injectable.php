@@ -17,6 +17,8 @@ include "dbconnection.php";
         $insert_data->execute([$injectable, $oral, $email]);
     
         $response["message"] = "successful";
+}else{
+    $response["message"] = "not successful";
 }
 
 echo json_encode($response);

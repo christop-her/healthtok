@@ -4,7 +4,7 @@ include "dbconnection.php";
 
 $response = [];
 
-$select_user = $conn->prepare("SELECT * FROM blogs");
+$select_user = $conn->prepare("SELECT * FROM blogs ORDER BY id DESC");
 $select_user->execute();
 
 if($select_user->rowCount() > 0){

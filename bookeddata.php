@@ -6,8 +6,8 @@ include "dbconnection.php";
 
     
 $email = $_POST['email'];
-$status = $_POST['status'];
-$false = 'false';
+// $status = $_POST['status'];
+$status = 'false';
 
 $response = [];
 

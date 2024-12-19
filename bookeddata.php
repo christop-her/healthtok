@@ -7,12 +7,12 @@ include "dbconnection.php";
     
 $email = $_POST['email'];
 $status = $_POST['status'];
-$false = 'false';
+$false = 'true';
 
 $response = [];
 
 $select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND read_status = ?");
-$select_user->execute([$email, $status]);
+$select_user->execute([$email, $false]);
 
 if($select_user->rowCount() > 0){
     while($fetch_user = $select_user->fetch(PDO::FETCH_ASSOC)){ 

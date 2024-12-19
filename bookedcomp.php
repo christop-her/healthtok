@@ -11,7 +11,7 @@ $status = $_POST['a_status'];
 
 $response = [];
 
-$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND a_status = ?");
+$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND read_status = ?");
 $select_user->execute([$email, $status]);
 
 if($select_user->rowCount() > 0){

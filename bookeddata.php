@@ -11,8 +11,8 @@ $status = 'false';
 
 $response = [];
 
-$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND cancel_status = ?");
-$select_user->execute([$email, $status]);
+$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND cancel_status = ? OR read_status = ?");
+$select_user->execute([$email, $status, $status]);
 
 if($select_user->rowCount() > 0){
     while($fetch_user = $select_user->fetch(PDO::FETCH_ASSOC)){ 

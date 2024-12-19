@@ -11,7 +11,7 @@ $status = 'false';
 
 $response = [];
 
-$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND read_status = ?");
+$select_user = $conn->prepare("SELECT * FROM bookings WHERE email = ? AND cancel_status = ?");
 $select_user->execute([$email, $status]);
 
 if($select_user->rowCount() > 0){
